@@ -1,0 +1,16 @@
+export const BASE_URL = "/api";
+export const USER_LOGIN = `${BASE_URL}/login`;
+export const GET_ACCESS_TOKENS = `${BASE_URL}/git-access-tokens`;
+export const POST_ACCESS_TOKEN = `${BASE_URL}/git-access-token`;
+export const DEL_ACCESS_TOKEN = `${BASE_URL}/git-access-token`;
+export const UPDATE_USER_PASSWORD = `${BASE_URL}/modify-password`;
+export const GET_WHITELIST = `${BASE_URL}/whitelists`;
+export const POST_WHITELIST = `${BASE_URL}/whitelist`;
+export const DEL_WHITELIST = `${BASE_URL}/whitelist`;
+export const GET_TASKS = `${BASE_URL}/tasks`;
+export const POST_TASK = `${BASE_URL}/tasks`;
+export const DEL_TASK = `${BASE_URL}/tasks`;
+export const UPDATE_TASK = `${BASE_URL}/tasks`;
+export const GET_TASK_RESULTS = `${BASE_URL}/leaks/lists`;
+export const SEARCH_TASK_RESULTS = `${BASE_URL}/leaks/search`;
+export const PROCESS_TASK_RESULT = `${BASE_URL}/leaks`;
