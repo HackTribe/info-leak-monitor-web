@@ -86,7 +86,7 @@ export default class AccessToken extends React.Component {
                         <Popconfirm
                             title="您确定删除该条数据吗？删除后将无法恢复！"
                             onConfirm={() => {
-                                this.removeAccessTokens(item.kind, item.access_token);
+                                this.removeAccessTokens(item.kind, item.id);
                             }}
                             okText="确定"
                             cancelText="取消"
