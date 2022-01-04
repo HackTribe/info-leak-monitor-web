@@ -11,7 +11,7 @@ export const getAccessTokensRequest = (kind="all") => {
 
 
 export const removeAccessTokensRequest = (kind,token) => {
-    return axios("已成功删除！").delete(`${DEL_ACCESS_TOKEN}/${kind}/${token}`);
+    return axios("已成功删除！").delete(`${DEL_ACCESS_TOKEN}`, [token]);
 };
 
 
