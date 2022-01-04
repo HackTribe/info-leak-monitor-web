@@ -30,10 +30,10 @@ export default class AccessToken extends React.Component {
         }
     };
 
-    removeAccessTokens = async (kind, token) => {
+    removeAccessTokens = async (kind, id) => {
         let tokens = this.state.tokens;
-        await removeAccessTokensRequest(kind, token);
-        tokens = tokens.filter((item) => item.access_token !== token);
+        await removeAccessTokensRequest(kind, id);
+        tokens = tokens.filter((item) => item.id !== id);
         this.setState({ tokens });
     };
 
