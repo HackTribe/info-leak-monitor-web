@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "信息泄漏监控",
+  "name": "信息泄漏监控系统",
   "icons": [
     {
       "src": "favicon.ico",
