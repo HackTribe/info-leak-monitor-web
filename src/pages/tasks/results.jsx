@@ -1,7 +1,7 @@
 import {
   GithubOutlined,
   GitlabOutlined,
-  GlobalOutlined
+  GlobalOutlined,
 } from "@ant-design/icons";
 import { Avatar, BackTop, Card, Comment, List, Spin, Tag, Tooltip } from "antd";
 import moment from "moment";
@@ -173,8 +173,14 @@ export default class TaskResults extends React.Component {
           tabList={this.tabList}
           activeTabKey={this.state.kind}
           onTabChange={(key) => {
-            this.setState({ kind: key, page: 1, results: [], keyword: "" });
-            this.getTaskResults({ kind: key, page: 1 });
+            this.setState({
+              kind: key,
+              page: 1,
+              per: 10,
+              results: [],
+              keyword: "",
+            });
+            this.getTaskResults({ kind: key, per: 10, page: 1 });
           }}
           tabBarExtraContent={<span>当前监测到{this.state.total}条数据</span>}
         >
@@ -196,55 +202,55 @@ export default class TaskResults extends React.Component {
                       actions={
                         item.is_white || item.ignore || item.is_process
                           ? [
-                            <Tooltip key="comment-basic-like" title="已处理">
-                              已处理
-                            </Tooltip>,
-                          ]
+                              <Tooltip key="comment-basic-like" title="已处理">
+                                已处理
+                              </Tooltip>,
+                            ]
                           : [
-                            <Tooltip
-                              key="comment-basic-like"
-                              title="加入白名单"
-                            >
-                              <span
-                                onClick={() => {
-                                  this.processLeak({
-                                    id: item.id,
-                                    state_type: 1, // 处理白名单
-                                  });
-                                }}
+                              <Tooltip
+                                key="comment-basic-like"
+                                title="加入白名单"
                               >
-                                <span className="comment-action">
-                                  加入白名单
+                                <span
+                                  onClick={() => {
+                                    this.processLeak({
+                                      id: item.id,
+                                      state_type: 1, // 处理白名单
+                                    });
+                                  }}
+                                >
+                                  <span className="comment-action">
+                                    加入白名单
+                                  </span>
                                 </span>
-                              </span>
-                            </Tooltip>,
-                            <Tooltip key="comment-basic-like" title="忽略">
-                              <span
-                                key="comment-basic-reply-to"
-                                onClick={() => {
-                                  this.processLeak({
-                                    id: item.id,
-                                    state_type: 0, // 忽略
-                                  });
-                                }}
-                              >
-                                忽略
-                              </span>
-                            </Tooltip>,
-                            <Tooltip key="comment-basic-like" title="处理">
-                              <span
-                                key="comment-basic-reply-to"
-                                onClick={() => {
-                                  this.processLeak({
-                                    id: item.id,
-                                    state_type: 2, // 处理
-                                  });
-                                }}
-                              >
-                                处理
-                              </span>
-                            </Tooltip>,
-                          ]
+                              </Tooltip>,
+                              <Tooltip key="comment-basic-like" title="忽略">
+                                <span
+                                  key="comment-basic-reply-to"
+                                  onClick={() => {
+                                    this.processLeak({
+                                      id: item.id,
+                                      state_type: 0, // 忽略
+                                    });
+                                  }}
+                                >
+                                  忽略
+                                </span>
+                              </Tooltip>,
+                              <Tooltip key="comment-basic-like" title="处理">
+                                <span
+                                  key="comment-basic-reply-to"
+                                  onClick={() => {
+                                    this.processLeak({
+                                      id: item.id,
+                                      state_type: 2, // 处理
+                                    });
+                                  }}
+                                >
+                                  处理
+                                </span>
+                              </Tooltip>,
+                            ]
                       }
                       author={
                         <div className="author">
